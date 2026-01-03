@@ -356,7 +356,7 @@ if __name__ == "__main__":
     parser.add_argument('--save_path', type=str, required=True,
                        help='Path to save zarr file (e.g., /path/to/cook5.zarr)')
     parser.add_argument('--scene_bounds', type=str,
-                       default="-0.1,-0.5,-0.1,0.9,0.5,0.9",
+                       default="0.05,-0.5,0,0.85,0.5,0.8",
                        help='Scene bounds: x_min,y_min,z_min,x_max,y_max,z_max')
     parser.add_argument('--num_points', type=int, default=1024,
                        help='Number of points after FPS downsampling')

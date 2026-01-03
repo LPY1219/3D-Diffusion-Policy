@@ -307,9 +307,9 @@ if __name__ == "__main__":
                        help='Path to zarr file (e.g., /path/to/cook5.zarr)')
     parser.add_argument('--trail', type=str, default='trail_1',
                        help='Trail name for raw visualization (e.g., trail_1)')
-    parser.add_argument('--episode', type=int, default=0,
+    parser.add_argument('--episode', type=int, default=2,
                        help='Episode index for zarr visualization')
-    parser.add_argument('--timestep', type=int, default=0,
+    parser.add_argument('--timestep', type=int, default=40,
                        help='Timestep for visualization')
     parser.add_argument('--scene_bounds', type=str,
                        default="-0.1,-0.5,-0.1,0.9,0.5,0.9",
