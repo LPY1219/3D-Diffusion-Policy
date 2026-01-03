@@ -18,7 +18,7 @@ env_runner: null
 
 dataset:
   _target_: diffusion_policy_3d.dataset.realdex_dataset.RealDexDataset
-  zarr_path: data/realdex_pour.zarr
+  zarr_path: /DATA/disk0/lpy/baseline/3D-Diffusion-Policy/3D-Diffusion-Policy/data/dp3_real/real_robot_demo/pour_40demo_1024.zarr
   horizon: ${horizon}
   pad_before: ${eval:'${n_obs_steps}-1'}
   pad_after: ${eval:'${n_action_steps}-1'}

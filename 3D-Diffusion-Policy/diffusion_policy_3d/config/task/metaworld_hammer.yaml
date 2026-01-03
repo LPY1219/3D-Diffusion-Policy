@@ -5,7 +5,7 @@ task_name: ${name}
 shape_meta: &shape_meta
   obs:
     point_cloud:
-      shape: [512, 3]
+      shape: [1024, 6]
       type: point_cloud
     agent_pos:
       shape: [9]
@@ -28,7 +28,7 @@ env_runner:
 
 dataset:
   _target_: diffusion_policy_3d.dataset.metaworld_dataset.MetaworldDataset
-  zarr_path: data/metaworld_hammer_expert.zarr
+  zarr_path: /DATA/disk0/lpy/baseline/3D-Diffusion-Policy/3D-Diffusion-Policy/data/meta_world/metaworld_hammer_expert.zarr
   horizon: ${horizon}
   pad_before: ${eval:'${n_obs_steps}-1'}
   pad_after: ${eval:'${n_action_steps}-1'}

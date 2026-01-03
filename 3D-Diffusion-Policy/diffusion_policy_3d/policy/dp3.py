@@ -61,12 +61,12 @@ class DP3(BasePolicy):
 
 
         obs_encoder = DP3Encoder(observation_space=obs_dict,
-                                                   img_crop_shape=crop_shape,
-                                                out_channel=encoder_output_dim,
-                                                pointcloud_encoder_cfg=pointcloud_encoder_cfg,
-                                                use_pc_color=use_pc_color,
-                                                pointnet_type=pointnet_type,
-                                                )
+                                img_crop_shape=crop_shape,
+                                out_channel=encoder_output_dim,
+                                pointcloud_encoder_cfg=pointcloud_encoder_cfg,
+                                use_pc_color=use_pc_color,
+                                pointnet_type=pointnet_type,
+                                )
 
         # create diffusion model
         obs_feature_dim = obs_encoder.output_shape()

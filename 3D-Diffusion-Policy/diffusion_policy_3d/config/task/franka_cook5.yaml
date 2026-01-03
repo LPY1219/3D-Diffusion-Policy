@@ -1,0 +1,27 @@
+name: franka_cook5
+
+task_name: cook5
+
+shape_meta: &shape_meta
+  # acceptable types: rgb, low_dim, point_cloud
+  obs:
+    point_cloud:
+      shape: [1024, 3]  # xyz coordinates only (no RGB)
+      type: point_cloud
+    agent_pos:
+      shape: [8]  # [x, y, z, qw, qx, qy, qz, gripper]
+      type: low_dim
+  action:
+    shape: [8]  # [dx, dy, dz, dqw, dqx, dqy, dqz, d_gripper]
+
+env_runner: null  # No env runner for real robot data
+
+dataset:
+  _target_: diffusion_policy_3d.dataset.franka_3cam_dataset.Franka3CamDataset
+  zarr_path: /DATA/disk0/lpy/baseline/3D-Diffusion-Policy/3D-Diffusion-Policy/data/cook5.zarr
+  horizon: ${horizon}
+  pad_before: ${eval:'${n_obs_steps}-1'}
+  pad_after: ${eval:'${n_action_steps}-1'}
+  seed: 42
+  val_ratio: 0.1  # 10% for validation
+  max_train_episodes: null  # Use all training episodes

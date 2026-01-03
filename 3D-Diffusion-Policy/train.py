@@ -76,7 +76,7 @@ class TrainDP3Workspace:
             cfg.training.max_train_steps = 10
             cfg.training.max_val_steps = 3
             cfg.training.rollout_every = 20
-            cfg.training.checkpoint_every = 1
+            cfg.training.checkpoint_every = 20
             cfg.training.val_every = 1
             cfg.training.sample_every = 1
             RUN_ROLLOUT = True
