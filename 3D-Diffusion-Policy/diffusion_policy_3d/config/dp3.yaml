@@ -116,6 +116,7 @@ training:
   tqdm_interval_sec: 1.0
 
 logging:
+  entity: "1113255710"  # Your wandb username
   group: ${exp_name}
   id: null
   mode: online
