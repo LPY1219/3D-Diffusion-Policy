@@ -1,0 +1,53 @@
+# Real Robot Evaluation Configuration for 3D-Diffusion-Policy
+# This config file specifies all parameters for deploying the trained model on real robot
+
+# Model configuration
+model:
+  # Path to trained checkpoint
+  checkpoint_path: "3D-Diffusion-Policy/data/outputs/franka_cook5-dp3-cook_5_seed0/checkpoints/latest.ckpt"
+
+  # Device to run model on
+  device: "cuda:0"
+
+  # Number of observation history steps
+  n_obs_steps: 2
+
+  # Number of action steps predicted per inference
+  n_action_steps: 8
+
+# Environment configuration
+environment:
+  # Scene bounds for point cloud cropping [x_min, y_min, z_min, x_max, y_max, z_max]
+  # IMPORTANT: Must match training data preprocessing
+  scene_bounds: [0.05, -0.5, 0.0, 0.85, 0.5, 0.8]
+
+  # Number of points after FPS downsampling
+  # IMPORTANT: Must match training data (1024)
+  num_points: 1024
+
+  # Use CUDA for FPS downsampling
+  use_cuda: true
+
+  # Safety workspace bounds (slightly larger than scene_bounds)
+  safety_bounds: [0.0, -0.6, -0.05, 0.9, 0.6, 0.85]
+
+  # Control loop frequency (Hz)
+  control_hz: 10.0
+
+  # Action scaling factor (reduce if actions are too aggressive)
+  action_scale: 1.0
+
+# Evaluation configuration
+evaluation:
+  # Maximum number of inference steps per episode
+  max_steps: 100
+
+  # Number of actions to execute per inference
+  # Should be <= n_action_steps
+  execution_steps: 8
+
+  # Enable visualization (camera feeds, point clouds, etc.)
+  visualize: false
+
+  # Save trajectory to file
+  save_trajectory: true
