@@ -38,6 +38,7 @@ test.png
 debug.png
 debug.mp4
 debug.gif
+*.png
 
 dexdeform_demonstrations.zip
 personal_TASK.md
