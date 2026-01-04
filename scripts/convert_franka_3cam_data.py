@@ -12,6 +12,14 @@ import torch
 import pytorch3d.ops as torch3d_ops
 from termcolor import cprint
 from pathlib import Path
+import sys
+
+# Compatibility fix for loading pickles created with numpy 2.x in numpy 1.x
+if not hasattr(np, '_core'):
+    np._core = np.core
+    sys.modules['numpy._core'] = np.core
+    sys.modules['numpy._core.multiarray'] = np.core.multiarray
+    sys.modules['numpy._core.umath'] = np.core._multiarray_umath
 
 
 def farthest_point_sampling(points, num_points=1024, use_cuda=True):
